@@ -1,16 +1,20 @@
 import { bool, number, shape, string } from 'prop-types';
-import { o } from 'ramda';
+
 import React from 'react';
 
 function ProductLine({ item }) {
-  const { label, price, isPacked } = item;
+  const { label, price, isPacked, id } = item;
+  const handleOnClick=()=>{
+    console.log(id);
+//const newItems=items.filter(element=> element.id !== id)
+  }
 
   return (
     <div>
       <input type="checkbox" checked={isPacked} />
       <span>{label}</span>
       <span>{price}</span>
-      <span>delete</span>
+      <span onClick={handleOnClick}>delete</span>
     </div>
   );
 }
