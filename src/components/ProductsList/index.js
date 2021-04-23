@@ -9,7 +9,7 @@ function ProductsList({ label, items }) {
   return (
     <div>
       <h3>{label}</h3>
-      <Textbox width="188px" placeholder="Filter inside the items" />
+      <Textbox width="188px" placeholder="Filter inside the items;" />
       {items.map(renderProductLine)}
     </div>
   );
