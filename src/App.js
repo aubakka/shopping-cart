@@ -22,7 +22,7 @@ const initialItems = [
     id: '3',
     label: 'Product 3',
     price: 10,
-    isPacked: true,
+    isPacked: false,
   },
 ];
 
@@ -35,9 +35,9 @@ function App() {
       <GlobalStyle />
       <Header items={items} setItems={setItems} />
 
-      <ProductsList items={items} label="Unpacked items" />
+      <ProductsList items={items}  setItems={setItems} label="Unpacked items"  />
 
-      <ProductsList items={items} label="Packed items" />
+      <ProductsList items={items} setItems={setItems} label="Packed items" isPacked  />
 
       <Button label="Mark all as unpacked" />
       <p>Total : 200$</p>
