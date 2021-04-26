@@ -1,3 +1,5 @@
+import { set } from 'ramda';
+import { useState } from 'react';
 import Button from './components/Button';
 import Header from './components/Header';
 import ProductsList from './components/ProductsList';
@@ -24,15 +26,18 @@ const initialItems = [
   },
 ];
 
+
 function App() {
+  const [items, setItems] = useState(initialItems);
+  
   return (
     <div className="App">
       <GlobalStyle />
-      <Header />
+      <Header items={items} setItems={setItems} />
 
-      <ProductsList items={initialItems} label="Unpacked items" />
+      <ProductsList items={items} label="Unpacked items" />
 
-      <ProductsList items={initialItems} label="Packed items" />
+      <ProductsList items={items} label="Packed items" />
 
       <Button label="Mark all as unpacked" />
       <p>Total : 200$</p>

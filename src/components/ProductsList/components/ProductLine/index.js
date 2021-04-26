@@ -6,7 +6,6 @@ function ProductLine({ item }) {
   const { label, price, isPacked, id } = item;
   const handleOnClick=()=>{
     console.log(id);
-//const newItems=items.filter(element=> element.id !== id)
   }
 
   return (
