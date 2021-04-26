@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import { bool, number, shape, string } from 'prop-types';
 
 import React from 'react';
@@ -53,39 +53,3 @@ ProductLine.defaultProps = {
 };
 
 export default ProductLine;
-=======
-import { bool, number, shape, string } from 'prop-types';
-
-import React from 'react';
-
-function ProductLine({ item }) {
-  const { label, price, isPacked, id } = item;
-  const handleOnClick=()=>{
-    console.log(id);
-  }
-
-  return (
-    <div>
-      <input type="checkbox" checked={isPacked} />
-      <span>{label}</span>
-      <span>{price}</span>
-      <span onClick={handleOnClick}>delete</span>
-    </div>
-  );
-}
-
-ProductLine.propTypes = {
-  item: shape({
-    id: string,
-    label: string,
-    price: number,
-    isPacked: bool,
-  }),
-};
-
-ProductLine.defaultProps = {
-  item: null,
-};
-
-export default ProductLine;
->>>>>>> d619401f974dccb5f4f4e4e5c9fc8d8f80889695
