@@ -6,7 +6,6 @@ function ProductLine({ item }) {
   const { label, price, isPacked, id } = item;
   const handleOnClick=()=>{
     console.log(id);
-
   }
 
   return (
