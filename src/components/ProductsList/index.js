@@ -1,11 +1,14 @@
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Textbox from '../Textbox';
 import ProductLine from './components/ProductLine';
 
 const renderProductLine = (item) => <ProductLine key={item.id} item={item} />;
 
-function ProductsList({ label, items }) {
+function ProductsList({ label }) {
+  const items = useSelector((state) => state.products);
+
   return (
     <div>
       <h3>{label}</h3>
@@ -17,19 +20,10 @@ function ProductsList({ label, items }) {
 
 ProductsList.propTypes = {
   label: string,
-  items: arrayOf(
-    shape({
-      id: string,
-      label: string,
-      price: number,
-      isPacked: bool,
-    }),
-  ),
 };
 
 ProductsList.defaultProps = {
   label: null,
-  items: null,
 };
 
 export default ProductsList;

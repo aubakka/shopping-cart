@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { HeaderWrapper } from "./styles";
-import Button from "../Button";
-import Textbox from "../Textbox";
+import { HeaderWrapper } from './styles';
+import Button from '../Button';
+import Textbox from '../Textbox';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItems } from '../../redux/actions';
 
-function Header({ items, setItems }) {
-  const [product, setProduct] = useState("");
+function Header() {
+  const items = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  const [product, setProduct] = useState('');
   const [price, setPrice] = useState(0);
+
   const handleOnPriceChange = (event) => {
     setPrice(event.target.value);
   };
@@ -15,14 +21,15 @@ function Header({ items, setItems }) {
   };
   const onClick = (event) => {
     console.log({ product, price });
-    const newProduct ={
-      label:product, 
+    const newProduct = {
+      label: product,
       price,
-      id:`${items.length+1}`,
-      isPacked:false
+      id: `${items.length + 1}`,
+      isPacked: false,
+    };
 
-    }
-    setItems([newProduct,...items]);
+    dispatch(addItems(newProduct));
+    // setItems([newProduct, ...items]);
   };
 
   return (

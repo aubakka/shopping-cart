@@ -1,12 +1,17 @@
 import { bool, number, shape, string } from 'prop-types';
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteItems } from '../../../../redux/actions';
 
 function ProductLine({ item }) {
   const { label, price, isPacked, id } = item;
-  const handleOnClick=()=>{
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
     console.log(id);
-  }
+    dispatch(deleteItems(id));
+  };
 
   return (
     <div>
